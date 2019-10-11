@@ -6,7 +6,8 @@ Creates Storage Account and Event Hubs to be used for diagnostics and operations
 Reference the module to a specific version (recommended):
 ```hcl
 module "diagnostics_logging" {
-    source                  = "git://github.com/aztfmod/diagnostics_logging.git?ref=v1.1"
+    source  = "aztfmod/caf-diagnostics-logging/azurerm"
+    version = "0.1.0"
   
     resource_group_name               = var.rg
     prefix                            = var.prefix
