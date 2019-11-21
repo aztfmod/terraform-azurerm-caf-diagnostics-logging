@@ -9,8 +9,8 @@ resource "random_string" "random_postfix" {
 
 resource "azurerm_storage_account" "log" {
   name                     = "opslogs${var.prefix}${random_string.random_postfix.result}"
-  resource_group_name      = "${var.resource_group_name}"
-  location                 = "${var.location}"
+  resource_group_name      = var.resource_group_name
+  location                 = var.location
   account_kind             = "StorageV2"
   account_tier             = "Standard"
   account_replication_type = "GRS"
@@ -21,8 +21,8 @@ resource "azurerm_storage_account" "log" {
 
 resource "azurerm_eventhub_namespace" "log" {
   name                = "opslogs${var.prefix}${random_string.random_postfix.result}"
-  location            = "${var.location}"
-  resource_group_name = "${var.resource_group_name}"
+  location            = var.location
+  resource_group_name = var.resource_group_name
   sku                 = "Standard"
   capacity            = 2
   tags                = local.tags
