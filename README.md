@@ -92,6 +92,22 @@ tags = {
   }
 ```
 
+## enable_event_hub 
+(Optional) Determine to deploy Event Hub for the configuration
+```hcl
+variable "enable_event_hub" {
+  description = "(Optional) Determine to deploy Event Hub for the configuration"
+  default = true
+}
+```
+
+Example
+```hcl
+enable_event_hub = false
+
+```
+
+
 # Output
 ## diagnostics_map
 Returns a map: 
