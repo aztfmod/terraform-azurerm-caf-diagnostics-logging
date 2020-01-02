@@ -1,7 +1,7 @@
 #Defines the subscription-wide operations logging and eventing settings
 #Using EventHubs and Storage Account 
 module "caf_name_st" {
-  source = "../terraform-azurerm-caf-naming/"
+  source = "github.com/aztfmod/terraform-azurerm-caf-naming.git?ref=proto"
   
   name    = var.name
   type    = "st"
@@ -9,7 +9,7 @@ module "caf_name_st" {
 }
 
 module "caf_name_evh" {
-  source = "../terraform-azurerm-caf-naming/"
+  source = "github.com/aztfmod/terraform-azurerm-caf-naming.git?ref=proto"
   
   name    = var.name
   type    = "evh"
@@ -17,15 +17,15 @@ module "caf_name_evh" {
 }
 
 resource "azurerm_storage_account" "log" {
-  name                     = module.caf_name_st.st
-  resource_group_name      = var.resource_group_name
-  location                 = var.location
-  account_kind             = "StorageV2"
-  account_tier             = "Standard"
-  account_replication_type = "GRS"
-  access_tier              = "Hot"
+  name                      = module.caf_name_st.st
+  resource_group_name       = var.resource_group_name
+  location                  = var.location
+  account_kind              = "StorageV2"
+  account_tier              = "Standard"
+  account_replication_type  = "GRS"
+  access_tier               = "Hot"
   enable_https_traffic_only = true
-  tags                     = local.tags
+  tags                      = local.tags
 }
 
 resource "azurerm_eventhub_namespace" "log" {
