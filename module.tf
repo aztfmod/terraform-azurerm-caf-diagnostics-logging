@@ -1,16 +1,18 @@
 #Defines the subscription-wide operations logging and eventing settings
 #Using EventHubs and Storage Account 
 module "caf_name_st" {
-  source = "github.com/aztfmod/terraform-azurerm-caf-naming.git?ref=proto"
-  
+  source  = "aztfmod/caf-naming/azurerm"
+  version = "~> 0.1.0"
+
   name    = var.name
   type    = "st"
   convention  = var.convention
 }
 
 module "caf_name_evh" {
-  source = "github.com/aztfmod/terraform-azurerm-caf-naming.git?ref=proto"
-  
+  source  = "aztfmod/caf-naming/azurerm"
+  version = "~> 0.1.0"
+    
   name    = var.name
   type    = "evh"
   convention  = var.convention

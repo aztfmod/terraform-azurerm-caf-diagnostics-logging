@@ -94,7 +94,17 @@ Example
 enable_event_hub = false
 
 ```
-
+## convention
+(Required) Map of tags for the deployment
+```hcl
+variable "convention" {
+  description = "(Required) Naming convention used"
+}
+```
+Example
+```hcl
+convention = "cafclassic"
+```
 
 # Output
 
