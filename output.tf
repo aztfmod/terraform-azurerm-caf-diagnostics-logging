@@ -4,15 +4,13 @@
 output "diagnostics_map" {
     depends_on = [
         azurerm_storage_account.log, 
-        azurerm_eventhub_namespace.log,
-        azurerm_eventhub_namespace.log
         ]
 
     value = "${
         map(
-            "diags_sa", "${azurerm_storage_account.log.id}",
-            "eh_name",  "${azurerm_eventhub_namespace.log.name}",
-            "eh_id", "${azurerm_eventhub_namespace.log.id}"
+            "diags_sa", azurerm_storage_account.log.id,
+            "eh_name",  var.enable_event_hub == true ? azurerm_eventhub_namespace.log[0].name : null,
+            "eh_id", var.enable_event_hub == true ? azurerm_eventhub_namespace.log[0].id : null,
         )
     }"
 }

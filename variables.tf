@@ -13,3 +13,14 @@ variable "tags" {
 variable "prefix" {
   description = "(Optional) You can use a prefix to add to the list of resource groups you want to create"
 }
+variable "enable_event_hub" {
+  description = "(Optional) Determine to deploy Event Hub for the configuration"
+  default = true
+}
+variable "convention" {
+  description = "(Required) Naming convention method to use"  
+}
+
+variable "name" {
+  description = "(Required) Name for the objects created (before naming convention applied.)"    
+}

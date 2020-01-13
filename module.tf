@@ -1,31 +1,44 @@
 #Defines the subscription-wide operations logging and eventing settings
 #Using EventHubs and Storage Account 
+module "caf_name_st" {
+  source  = "aztfmod/caf-naming/azurerm"
+  version = "~> 0.1.0"
 
-resource "random_string" "random_postfix" {
-    length  = 3
-    upper   = false
-    special = false
+  name    = var.name
+  type    = "st"
+  convention  = var.convention
+}
+
+module "caf_name_evh" {
+  source  = "aztfmod/caf-naming/azurerm"
+  version = "~> 0.1.0"
+    
+  name    = var.name
+  type    = "evh"
+  convention  = var.convention
 }
 
 resource "azurerm_storage_account" "log" {
-  name                     = "opslogs${var.prefix}${random_string.random_postfix.result}"
-  resource_group_name      = var.resource_group_name
-  location                 = var.location
-  account_kind             = "StorageV2"
-  account_tier             = "Standard"
-  account_replication_type = "GRS"
-  access_tier              = "Hot"
+  name                      = module.caf_name_st.st
+  resource_group_name       = var.resource_group_name
+  location                  = var.location
+  account_kind              = "StorageV2"
+  account_tier              = "Standard"
+  account_replication_type  = "GRS"
+  access_tier               = "Hot"
   enable_https_traffic_only = true
-  tags                     = local.tags
+  tags                      = local.tags
 }
 
 resource "azurerm_eventhub_namespace" "log" {
-  name                = "opslogs${var.prefix}${random_string.random_postfix.result}"
+  count = var.enable_event_hub ? 1 : 0
+
+  name                = module.caf_name_evh.evh
   location            = var.location
   resource_group_name = var.resource_group_name
   sku                 = "Standard"
   capacity            = 2
   tags                = local.tags
   auto_inflate_enabled = false
-  kafka_enabled       = true
+  # kafka_enabled       = true
 }

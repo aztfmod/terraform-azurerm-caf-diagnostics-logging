@@ -7,19 +7,7 @@ Reference the module to a specific version (recommended):
 ```hcl
 module "diagnostics_logging" {
     source  = "aztfmod/caf-diagnostics-logging/azurerm"
-    version = "0.1.0"
-  
-    resource_group_name               = var.rg
-    prefix                            = var.prefix
-    location                          = var.location
-    tags                              = var.tags
-}
-```
-
-Or get the latest version
-```hcl
-module "diagnostics_logging" {
-    source                  = "git://github.com/aztfmod/diagnostics_logging.git?ref=latest"
+    version = "0.x.y"
   
     resource_group_name               = var.rg
     prefix                            = var.prefix
@@ -92,9 +80,34 @@ tags = {
   }
 ```
 
+## enable_event_hub 
+(Optional) Determine to deploy Event Hub for the configuration
+```hcl
+variable "enable_event_hub" {
+  description = "(Optional) Determine to deploy Event Hub for the configuration"
+  default = true
+}
+```
+
+Example
+```hcl
+enable_event_hub = false
+
+```
+## convention
+(Required) Naming convention to be used.
+```hcl
+variable "convention" {
+  description = "(Required) Naming convention used"
+}
+```
+Example
+```hcl
+convention = "cafclassic"
+```
+
 # Output
-## diagnostics_map
-Returns a map: 
-  - "diags_sa"- Storage account resource ID
-  - "eh_name"- Event Hub Name 
-  - "eh_id" - Event Hub Resource ID  
+
+| Name | Type | Description | 
+| -- | -- | -- | 
+| diagnostics_map | map(strings) | Contains the diagnostics details as follow: <br> - "diags_sa"- Storage account resource ID <br> - "eh_name"- Event Hub Name <br> - "eh_id" - Event Hub Resource ID 
