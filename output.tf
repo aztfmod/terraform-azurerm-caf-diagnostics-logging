@@ -9,6 +9,7 @@ output "diagnostics_map" {
     value = "${
         map(
             "diags_sa", azurerm_storage_account.log.id,
+            "diags_sa_blob", azurerm_storage_account.log.primary_blob_endpoint,
             "eh_name",  var.enable_event_hub == true ? azurerm_eventhub_namespace.log[0].name : null,
             "eh_id", var.enable_event_hub == true ? azurerm_eventhub_namespace.log[0].id : null,
         )
