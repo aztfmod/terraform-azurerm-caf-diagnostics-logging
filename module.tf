@@ -2,17 +2,15 @@
 #Using EventHubs and Storage Account 
 resource "azurecaf_naming_convention" "caf_name_st" {  
   name    = var.name
-  prefix  = var.prefix
+  prefix  = var.prefix != "" ? var.prefix : null
   resource_type    = "st"
-  max_length = 50
   convention  = var.convention
 }
 
 resource "azurecaf_naming_convention" "caf_name_evh" {  
   name    = var.name
-  prefix  = var.prefix
+  prefix  = var.prefix != "" ? var.prefix : null
   resource_type    = "evh"
-  max_length = 50
   convention  = var.convention
 }
 

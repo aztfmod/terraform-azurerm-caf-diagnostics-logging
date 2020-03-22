@@ -3,6 +3,3 @@ provider "azurerm" {
   features {}
 }
 
-provider "azurecaf" {
-  
-}

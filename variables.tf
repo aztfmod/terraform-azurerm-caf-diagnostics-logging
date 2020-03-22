@@ -12,6 +12,7 @@ variable "tags" {
 }
 variable "prefix" {
   description = "(Optional) You can use a prefix to add to the list of resource groups you want to create"
+  default = ""
 }
 variable "enable_event_hub" {
   description = "(Optional) Determine to deploy Event Hub for the configuration"

@@ -1,4 +1,3 @@
-[![Build status](https://dev.azure.com/azure-terraform/Blueprints/_apis/build/status/modules/diagnostics_logging)](https://dev.azure.com/azure-terraform/Blueprints/_build/latest?definitionId=6)
 # Deploys the operations log repositories 
 Creates Storage Account and Event Hubs to be used for diagnostics and operations logs. 
 
@@ -12,6 +11,7 @@ module "diagnostics_logging" {
     resource_group_name               = var.rg
     prefix                            = var.prefix
     location                          = var.location
+    convention                        = var.convention
     tags                              = var.tags
 }
 ```
@@ -28,7 +28,7 @@ variable "resource_group_name" {
 ```
 Example
 ```hcl
-virtual_network_rg = "my-vnet"
+resource_group_name = "my-diags"
 ```
 
 ## location
