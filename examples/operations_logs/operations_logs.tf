@@ -1,11 +1,3 @@
-# resource "azurecaf_naming_convention" "rg_test" {  
-#   name    = local.resource_groups.test.name
-#   prefix  = var.prefix
-#   resource_type    = "rg"
-#   max_length = 50
-#   convention  = local.convention
-# }
-
 resource "azurerm_resource_group" "rg_test" {
   name     = local.resource_groups.test.name
   location = local.resource_groups.test.location

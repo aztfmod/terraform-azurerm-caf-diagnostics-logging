@@ -3,13 +3,17 @@
 resource "azurecaf_naming_convention" "caf_name_st" {  
   name    = var.name
   prefix  = var.prefix != "" ? var.prefix : null
-  resource_type    = "st"
+  postfix       = var.postfix != "" ? var.postfix : null
+  max_length    = var.max_length != "" ? var.max_length : null
+  resource_type    = "azurerm_storage_account"
   convention  = var.convention
 }
 
 resource "azurecaf_naming_convention" "caf_name_evh" {  
   name    = var.name
   prefix  = var.prefix != "" ? var.prefix : null
+  postfix       = var.postfix != "" ? var.postfix : null
+  max_length    = var.max_length != "" ? var.max_length : null
   resource_type    = "evh"
   convention  = var.convention
 }

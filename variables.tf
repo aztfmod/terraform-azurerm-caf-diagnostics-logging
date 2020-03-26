@@ -10,10 +10,7 @@ variable "tags" {
   description = "(Required) Tags for the logs repositories to be created "
   
 }
-variable "prefix" {
-  description = "(Optional) You can use a prefix to add to the list of resource groups you want to create"
-  default = ""
-}
+
 variable "enable_event_hub" {
   description = "(Optional) Determine to deploy Event Hub for the configuration"
   default = true
@@ -25,3 +22,22 @@ variable "convention" {
 variable "name" {
   description = "(Required) Name for the objects created (before naming convention applied.)"    
 }
+
+variable "prefix" {
+  description = "(Optional) You can use a prefix to the name of the resource"
+  type        = string
+  default = ""
+}
+
+variable "postfix" {
+  description = "(Optional) You can use a postfix to the name of the resource"
+  type        = string
+  default = ""
+}
+
+variable "max_length" {
+  description = "(Optional) You can speficy a maximum length to the name of the resource"
+  type        = string
+  default = ""
+}
+
