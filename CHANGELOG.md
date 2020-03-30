@@ -1,3 +1,9 @@
+## v2.0.1 (March 2020)
+
+BUGS: 
+* **bug fix:**  error removing a the caf diagnostics logging module 2.0.0 ([#8](https://github.com/aztfmod/terraform-azurerm-caf-diagnostics-logging/issues/8))
+
+
 ## v2.0 (March 2020)
 
 FEATURES: 
