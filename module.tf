@@ -9,7 +9,8 @@ resource "azurecaf_naming_convention" "caf_name_st" {
   convention  = var.convention
 }
 
-resource "azurecaf_naming_convention" "caf_name_evh" {  
+resource "azurecaf_naming_convention" "caf_name_evh" {
+  count = var.enable_event_hub ? 1 : 0  
   name    = var.name
   prefix  = var.prefix != "" ? var.prefix : null
   postfix       = var.postfix != "" ? var.postfix : null
@@ -33,7 +34,7 @@ resource "azurerm_storage_account" "log" {
 resource "azurerm_eventhub_namespace" "log" {
   count = var.enable_event_hub ? 1 : 0
 
-  name                = azurecaf_naming_convention.caf_name_evh.result
+  name                = azurecaf_naming_convention.caf_name_evh[0].result
   location            = var.location
   resource_group_name = var.resource_group_name
   sku                 = "Standard"
