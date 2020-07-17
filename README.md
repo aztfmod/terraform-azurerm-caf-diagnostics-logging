@@ -37,4 +37,4 @@ module "diagnostics_logging" {
 
 | Name | Type | Description | 
 | -- | -- | -- | 
-| diagnostics_map | map(strings) | Contains the diagnostics details as follow: <br> - "diags_sa"- Storage account resource ID <br> - "eh_name"- Event Hub Name <br> - "eh_id" - Event Hub Resource ID 
+| diagnostics_map | map(strings) | Contains the diagnostics details as follow: <br> - "diags_sa"- Storage account resource ID <br> - "diags_sa_name" - Storage account name <br> - "diags_sa_rg" - the resource group name containing the storage account <br> - "eh_name"- Event Hub Name <br> - "eh_id" - Event Hub Resource ID 
