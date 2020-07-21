@@ -2,6 +2,7 @@
 
 FEATURES: 
 * **new feature:**  Add support for Terraform 0.13 ([#12](https://github.com/aztfmod/terraform-azurerm-caf-diagnostics-logging/issues/12))
+* **new feature:**  Add additional output attributes to support Data source ([#10])(https://github.com/aztfmod/terraform-azurerm-caf-diagnostics-logging/issues/10)
 
 ## v2.0.1 (March 2020)
 
