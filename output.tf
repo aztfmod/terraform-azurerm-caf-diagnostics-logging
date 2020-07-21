@@ -2,6 +2,7 @@
 ##export one object with both
 
 output "diagnostics_map" {
+    description = "Map of diagnostics repositories: diags_sa, diags_sa_name, diags_sa_rg, eh_name (optional), eh_id(optional)"
     depends_on = [
         azurerm_storage_account.log, 
         ]
