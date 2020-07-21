@@ -22,5 +22,35 @@ module "diagnostics_logging" {
 
 
 <!--- BEGIN_TF_DOCS --->
+## Requirements
+
+No requirements.
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| azurecaf | n/a |
+| azurerm | n/a |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| convention | (Required) Naming convention method to use | `any` | n/a | yes |
+| enable\_event\_hub | (Optional) Determine to deploy Event Hub for the configuration | `bool` | `true` | no |
+| location | (Required) Define the region where the resources will be created | `any` | n/a | yes |
+| max\_length | (Optional) You can speficy a maximum length to the name of the resource | `string` | `""` | no |
+| name | (Required) Name for the objects created (before naming convention applied.) | `any` | n/a | yes |
+| postfix | (Optional) You can use a postfix to the name of the resource | `string` | `""` | no |
+| prefix | (Optional) You can use a prefix to the name of the resource | `string` | `""` | no |
+| resource\_group\_name | (Required) Name of the resource group to deploy the operations log. | `any` | n/a | yes |
+| tags | (Required) Tags for the logs repositories to be created | `any` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| diagnostics\_map | Map of diagnostics repositories: diags\_sa, diags\_sa\_name, diags\_sa\_rg, eh\_name (optional), eh\_id(optional) |
 
 <!--- END_TF_DOCS --->
